@@ -10,8 +10,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/yashaspancham/frontend_s3_web_hosting.git',
-                    credentialsId: 'AWS-creds'
+                    url: 'https://github.com/sumitkumarrai1501/staticwebsitehosting.git',
+                    credentialsId: 'sumitkumarrai'
             }
         }
 
@@ -24,9 +24,9 @@ pipeline {
 
         stage('Deploy to S3 & Invalidate CloudFront') {
             steps {
-                withAWS(credentials: 'AWS-creds', region: 'ap-south-1') {
+                withAWS(credentials: 'sumitkumarrai', region: 'us-east-1') {
                     sh 'aws s3 sync build/ s3://$S3_BUCKET --delete'
-                    sh 'aws cloudfront create-invalidation --distribution-id E1W5YWBNW5A7S7 --paths "/*"'
+                    sh 'aws cloudfront create-invalidation --distribution-id E1AZ06VD3QJ51K --paths "/*"'
                 }
             }
         }
