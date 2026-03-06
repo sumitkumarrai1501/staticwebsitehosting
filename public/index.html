@@ -1,203 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sumit Kumar Rai Shop | Home to Bangalore Trendies and Latest Fashion Accessories</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AWS Microservices App</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'
+  viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
 <style>
-
-body{
-font-family: Arial, Helvetica, sans-serif;
-margin:0;
-background:#f5f5f5;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
 }
 
-header{
-background:#111;
-color:white;
-padding:20px;
-text-align:center;
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
 }
 
-nav{
-background:#222;
-padding:10px;
-text-align:center;
+h1 {
+    background: linear-gradient(to right, #ffcc00, #ff6600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
+h2 {
+    color: #00f2fe;
 }
 
-.hero{
-background-image:url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f');
-background-size:cover;
-background-position:center;
-height:350px;
-color:white;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-shadow:2px 2px 4px black;
+input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
 }
 
-.discount-banner{
-background:#ff3c00;
-color:white;
-text-align:center;
-padding:15px;
-font-size:20px;
-font-weight:bold;
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:30px;
+.registerbtn {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
 }
 
-.product{
-background:white;
-padding:15px;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-text-align:center;
+.loginuserbtn {
+    background: linear-gradient(45deg, #f7971e, #ffd200);
+    color: black;
 }
 
-.product img{
-width:100%;
-border-radius:5px;
+.loaduserbtn {
+    background: linear-gradient(45deg, #43e97b, #38f9d7);
 }
 
-.price{
-color:#ff3c00;
-font-size:18px;
-font-weight:bold;
+.loadorders {
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+    color: white;
 }
 
-button{
-background:black;
-color:white;
-border:none;
-padding:10px 15px;
-margin-top:10px;
-cursor:pointer;
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-.about{
-background:white;
-padding:40px;
-text-align:center;
+pre {
+    background: rgba(0,0,0,0.4);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    overflow-x: auto;
 }
-
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:20px;
+hr {
+    border: 1px solid rgba(255,255,255,0.2);
 }
-
 </style>
+
 </head>
 
 <body>
 
-<header>
-<h1>SUMIT KUMAR RAI SHOP</h1>
-<p>Bangalore's Trendiest AND LATEST Fashion Accessories</p>
-</header>
+<div class="container">
 
-<nav>
-<a href="#">Home</a>
-<a href="#">Men</a>
-<a href="#">Women</a>
-<a href="#">New Arrivals</a>
-<a href="#">Contact</a>
-</nav>
+<h1>🚀 AWS DevOps Microservices Project By Besant Tech</h1>
 
-<div class="discount-banner">
-🔥 BANGALORE FASHION DROP – FLAT 30% OFF THIS WEEKEND 🔥
+<hr>
+
+<h2>Register</h2>
+<input type="text" id="regName" placeholder="Name"><br>
+<input type="email" id="regEmail" placeholder="Email"><br>
+<input type="password" id="regPassword" placeholder="Password"><br>
+<button onclick="registerUser()" class="registerbtn">Register</button>
+
+<hr>
+
+<h2>Login</h2>
+<input type="email" id="loginEmail" placeholder="Email"><br>
+<input type="password" id="loginPassword" placeholder="Password"><br>
+<button onclick="loginUser()" class="loginuserbtn">Login</button>
+
+<hr>
+
+<h2>Other Services</h2>
+<button onclick="loadUsers()" class="loaduserbtn">Load Users</button>
+<button onclick="loadOrders()" class="loadorders">Load Orders</button>
+
+<hr>
+
+<pre id="result"></pre>
+
 </div>
 
-<section class="hero">
-<h1>Upgrade Your Style</h1>
-<p>Premium Fashion Accessories for Bangalore's Trendsetters</p>
-<button>Shop Now</button>
-</section>
-
-<div class="discount-banner">
-⚡ STUDENT SPECIAL – EXTRA 10% OFF FOR AGE 14-25 ⚡
-</div>
-
-<section class="products">
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-<h3>Luxury Smart Watch</h3>
-<p class="price">₹2,999</p>
-<button>Buy Now</button>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083">
-<h3>Urban Sunglasses</h3>
-<p class="price">₹1,299</p>
-<button>Buy Now</button>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
-<h3>Premium Street Cap</h3>
-<p class="price">₹799</p>
-<button>Buy Now</button>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1592878904946-b3cd87fa5f8a">
-<h3>Minimalist Necklace</h3>
-<p class="price">₹999</p>
-<button>Buy Now</button>
-</div>
-
-</section>
-
-<section class="about">
-
-<h2>Why Shop With Us?</h2>
-
-<p>
-sumitkumarrai.shop brings curated fashion accessories inspired by
-Bangalore's modern street culture. Whether you are heading to a
-startup office in Indiranagar, a weekend party in Koramangala,
-or a college fest — we have the accessories that complete your look.
-</p>
-
-<p>
-✔ Trend-driven styles<br>
-✔ Affordable premium quality<br>
-✔ Designed for Bangalore's urban lifestyle
-</p>
-
-</section>
-
-<div class="discount-banner">
-🚚 FREE DELIVERY IN BANGALORE ABOVE ₹1499 🚚
-</div>
-
-<footer>
-
-<p>© 2026 sumitkumarrai.shop</p>
-<p>Bangalore, India</p>
-
-</footer>
-
+<script src="src/app.js"></script>
 </body>
-
 </html>
-
